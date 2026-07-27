@@ -146,6 +146,5 @@ Janela: setembro de 2016 a outubro de 2018. Apenas pedidos com status `delivered
 
 ## Autor
 
-Lucas Fontes — Analista de Dados
+**Autor:** Lucas Fontes · 🔗 [GitHub](https://github.com/Lucasfontez) · [LinkedIn](https://www.linkedin.com/in/lucassfontesc/)
 
-[LinkedIn](https://linkedin.com/in/[preencher]) · [GitHub](https://github.com/Lucasfontez)
