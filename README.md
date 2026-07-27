@@ -2,21 +2,22 @@
 
 Segmentação da base de vendedores do marketplace Olist em quatro quadrantes acionáveis, cruzando volume de pedidos com nota de avaliação.
 
-![Excel](https://img.shields.io/badge/Excel-Power%20Query-217346)
-![Power BI](https://img.shields.io/badge/Power%20BI-DAX%20%7C%20Star%20Schema-F2C811)
-![Dataset](https://img.shields.io/badge/Dataset-Olist%20%7C%20Kaggle-20BEFF)
-
 **[Ver o dashboard ao vivo](https://app.powerbi.com/view?r=eyJrIjoiM2YzNzc1ZjctZmYzYy00ZjdlLWExNWUtYzZiYTFiZTE5Yjc5IiwidCI6ImU4MmU1OWEwLWY0YTAtNDNmMC1iM2E5LTIwMDZjNjdmMGQ2NiJ9)**
 
 ---
-
-## Preview
-
-![Capa do dashboard](assets/pagina-1-capa.png)
-![Diagnóstico geral](assets/pagina-2-diagnostico.png)
-![Matriz de segmentação](assets/pagina-3-segmentacao.png)
-![Análise qualitativa](assets/pagina-4-qualitativa.png)
-
+ 
+## 🎥 Preview
+ 
+| Capa | Diagnóstico Geral |
+|:---:|:---:|
+| ![Capa](assets/pagina-1-capa.png) | ![Diagnóstico Geral](assets/pagina-2-diagnostico.png) |
+| **Matriz de Segmentação** | **Análise Qualitativa** |
+| ![Matriz de Segmentação](assets/pagina-3-segmentacao.png) | ![Análise Qualitativa](assets/pagina-4-qualitativa.png) |
+ 
+📄 [Ver as quatro páginas em PDF](assets/SGS-Dashboard.pdf)
+ 
+> As capturas foram exportadas com o filtro de ano em 2018. Os números citados neste README e na documentação são do período completo — setembro de 2016 a outubro de 2018.
+ 
 ---
 
 ## Principais achados
