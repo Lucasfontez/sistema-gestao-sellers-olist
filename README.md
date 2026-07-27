@@ -14,8 +14,6 @@ Segmentação da base de vendedores do marketplace Olist em quatro quadrantes ac
 | **Matriz de Segmentação** | **Análise Qualitativa** |
 | ![Matriz de Segmentação](assets/pagina-3-segmentacao.png) | ![Análise Qualitativa](assets/pagina-4-qualitativa.png) |
  
-📄 [Ver as quatro páginas em PDF](assets/SGS-Dashboard.pdf)
- 
 > As capturas foram exportadas com o filtro de ano em 2018. Os números citados neste README e na documentação são do período completo — setembro de 2016 a outubro de 2018.
  
 ---
