@@ -137,16 +137,26 @@ Gerada por código, com a janela derivada dos próprios dados:
 ```m
 let
     Fonte = stg_pedidos[Data Compra],
-    DataMin = Date.StartOfYear(List.Min(Fonte)),
-    DataMax = Date.EndOfYear(List.Max(Fonte)),
+    DataMin = Date.StartOfYear(List.Min( Fonte )),
+    DataMax = Date.EndOfYear(List.Max( Fonte )),
     QtdeDias = Duration.Days(DataMax - DataMin) + 1,
     ListDates = List.Dates(DataMin, QtdeDias, #duration(1,0,0,0)),
     ParaTabela = Table.FromList(ListDates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-    NomeMesInserido = Table.AddColumn(ParaTabela, "NomeMes", each Date.MonthName([Column1]), type text),
-    NumMesInserido = Table.AddColumn(NomeMesInserido, "NumMes", each Date.Month([Column1]), Int64.Type),
-    AnoInserido = Table.AddColumn(NumMesInserido, "Ano", each Date.Year([Column1]), Int64.Type)
+    NomeDiaInserido = Table.AddColumn(ParaTabela, "NomeDia", each Text.BeforeDelimiter( Date.DayOfWeekName([Column1]), "-"), type text),
+    NomeMesInserido = Table.AddColumn(NomeDiaInserido, "NomeMes", each Date.MonthName([Column1]), type text),
+    MesAbreviadoInserido = Table.AddColumn(NomeMesInserido, "NomeMesAbreviado", each Text.Start([NomeMes], 3), type text),
+    SemanaMesInserida = Table.AddColumn(MesAbreviadoInserido, "SemanaMes", each "0" & Text.From( Date.WeekOfMonth([Column1]) ) & " - Sem", type text),
+    SemanaAnoInserida = Table.AddColumn(SemanaMesInserida, "SemanaAno", each Text.PadStart( Text.From( Date.WeekOfYear([Column1]) ), 2, "0") & " - Sem", type text),
+    NumMesInserido = Table.AddColumn(SemanaAnoInserida, "NumMes", each Date.Month([Column1]), Int64.Type),
+    AnoInserido = Table.AddColumn(NumMesInserido, "Ano", each Date.Year([Column1]), Int64.Type),
+    MesAnoInserido = Table.AddColumn(AnoInserido, "MesAno", each Text.Combine({[NomeMesAbreviado], Text.From([Ano])}, " - "), type text),
+    ColunasRenomeadas = Table.RenameColumns(MesAnoInserido,{{"Column1", "Data"}}),
+    TipoAlterado = Table.TransformColumnTypes(ColunasRenomeadas,{{"Data", type date}}),
+    PrimMaiuscula = Table.TransformColumns(TipoAlterado,{{"NomeDia", Text.Proper, type text}, {"NomeMes", Text.Proper, type text}, {"NomeMesAbreviado", Text.Proper, type text},              {"MesAno", Text.Proper, type text}}),
+    AnoMesOrdem = Table.AddColumn(PrimMaiuscula, "AnoMesOrdem", 
+    each [Ano] * 100 + [NumMes], Int64.Type)
 in
-    AnoInserido
+    AnoMesOrdem
 ```
 
 Derivar a janela dos dados em vez de fixar datas significa que, se a base for atualizada, o calendário acompanha sozinho.
